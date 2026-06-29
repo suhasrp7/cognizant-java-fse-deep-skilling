@@ -1,0 +1,6 @@
+MyServiceTest.class
+com\cognizant\junit\AppTest.class
+com\cognizant\junit\AssertionsTest.class
+VerifyInteractionTest.class
+com\cognizant\junit\CalculatorTest.class
+Module4\MyFirstTest.class
