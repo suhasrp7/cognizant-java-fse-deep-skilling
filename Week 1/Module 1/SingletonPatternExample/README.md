@@ -1,12 +1,18 @@
 # Singleton Pattern Example
 
 ## Objective
-Implement the Singleton Design Pattern in Java.
+
+Implement the Singleton Design Pattern in Java to ensure that only one instance of a class is created throughout the application.
 
 ## Files
-- Logger.java
-- LoggerTest.java
+
+* Logger.java
+* LoggerTest.java
 
 ## Output
 
-![Output](Output.png)
+![Program Output](Output.png)
+
+## Author
+
+**Shankaragouda Patil**
