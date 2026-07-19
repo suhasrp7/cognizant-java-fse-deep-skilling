@@ -27,11 +27,8 @@ WEEK4
 
 ## Output
 
-The Eureka Discovery Server is running successfully, and both Account and Loan microservices are registered.
+The following screenshots are included:
 
-Ports Used:
-- Eureka Server : 8761
-- Account Service : 8080
-- Loan Service : 8081
-
-The final output screenshot is included as OUTPUT.png.
+- Eureka_Dashboard.png – Eureka Discovery Server with Account and Loan services registered.
+- Account_Service_Output.png – Account microservice REST API response.
+- Loan_Service_Output.png – Loan microservice REST API response.
