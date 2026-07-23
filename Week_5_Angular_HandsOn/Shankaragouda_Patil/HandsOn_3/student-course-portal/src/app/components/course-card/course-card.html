@@ -1,0 +1,23 @@
+<div class="card"
+     appHighlight
+     [ngClass]="{
+       'high-credit': course.credits >= 4,
+       'low-credit': course.credits < 4
+     }"
+     [ngStyle]="{
+       'background-color': course.credits >= 4 ? '#e8f5e9' : '#fff8e1'
+     }">
+
+  <h3>{{ course.name | courseTitle }}</h3>
+
+  <p>ID: {{ course.id }}</p>
+
+  <p>Code: {{ course.code }}</p>
+
+  <p>Credits: {{ course.credits }}</p>
+
+  <button (click)="enroll()">
+    Enroll
+  </button>
+
+</div>
