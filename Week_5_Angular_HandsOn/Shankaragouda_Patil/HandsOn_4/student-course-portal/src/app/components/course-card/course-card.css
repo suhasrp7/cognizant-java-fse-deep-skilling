@@ -1,0 +1,19 @@
+.card{
+    border:1px solid #ccc;
+    padding:15px;
+    margin:10px;
+    border-radius:8px;
+    width:250px;
+}
+
+.high-credit{
+    border:2px solid green;
+}
+
+.low-credit{
+    border:2px solid orange;
+}
+
+button{
+    margin-top:10px;
+}
