@@ -4,10 +4,19 @@ export function noLeadingSpaceValidator(
   control: AbstractControl
 ): ValidationErrors | null {
 
-  const value = control.value;
-
-  if (value && value.startsWith(' ')) {
+  if (control.value && control.value.startsWith(' ')) {
     return { leadingSpace: true };
+  }
+
+  return null;
+}
+
+export function invalidCourseValidator(
+  control: AbstractControl
+): ValidationErrors | null {
+
+  if (control.value === 'XX101') {
+    return { invalidCourse: true };
   }
 
   return null;

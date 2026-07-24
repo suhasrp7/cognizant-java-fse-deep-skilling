@@ -1,6 +1,5 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { noLeadingSpaceValidator } from '../../custom-validator';
 import {
   FormArray,
   FormBuilder,
@@ -8,6 +7,13 @@ import {
   ReactiveFormsModule,
   Validators
 } from '@angular/forms';
+
+import {
+  noLeadingSpaceValidator,
+  invalidCourseValidator
+} from '../../custom-validator';
+
+import { emailTakenValidator } from '../../async-email.validator';
 
 @Component({
   selector: 'app-reactive-enrollment-form',
@@ -23,20 +29,44 @@ export class ReactiveEnrollmentForm {
   constructor(private fb: FormBuilder) {
 
     this.enrollmentForm = this.fb.group({
-    studentName: [
-  '',
-  [
-    Validators.required,
-    Validators.minLength(3),
-    noLeadingSpaceValidator
-  ]
-],
-      email: ['', [Validators.required, Validators.email]],
-      courseId: ['', Validators.required],
-      semester: ['', Validators.required],
+
+      studentName: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(3),
+          noLeadingSpaceValidator
+        ]
+      ],
+
+      email: [
+        '',
+        [
+          Validators.required,
+          Validators.email
+        ],
+        [
+          emailTakenValidator()
+        ]
+      ],
+
+      courseId: [
+        '',
+        [
+          Validators.required,
+          invalidCourseValidator
+        ]
+      ],
+
+      semester: [
+        '',
+        Validators.required
+      ],
+
       skills: this.fb.array([
         this.fb.control('')
       ])
+
     });
 
   }
@@ -54,8 +84,8 @@ export class ReactiveEnrollmentForm {
   }
 
   onSubmit() {
-  console.log('Reactive Enrollment Successful!');
-  console.log(this.enrollmentForm.value);
-}
+    console.log('Reactive Enrollment Successful!');
+    console.log(this.enrollmentForm.value);
+  }
 
 }
