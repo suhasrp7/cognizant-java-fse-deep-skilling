@@ -1,0 +1,25 @@
+<h2>Available Courses</h2>
+
+<button (click)="addDummyCourse()">
+  Add Dummy Course
+</button>
+
+<br><br>
+
+<div *ngIf="isLoading">
+  <p>Loading courses...</p>
+</div>
+
+<div *ngIf="!isLoading">
+  <app-course-card
+    *ngFor="let c of courses; trackBy: trackByCourseId"
+    [course]="c"
+    [isEnrolled]="isEnrolled(c.id)"
+    (enrollRequested)="onEnroll($event)"
+    (unenrollRequested)="onUnenroll($event)">
+  </app-course-card>
+</div>
+
+<p *ngIf="selectedCourseId">
+  Selected Course ID: {{ selectedCourseId }}
+</p>
