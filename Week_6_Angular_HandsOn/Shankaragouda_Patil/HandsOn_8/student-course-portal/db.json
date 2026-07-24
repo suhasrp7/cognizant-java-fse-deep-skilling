@@ -1,0 +1,62 @@
+{
+  "courses": [
+    {
+      "id": "1",
+      "name": "Angular Fundamentals",
+      "code": "ANG101",
+      "credits": 4,
+      "gradeStatus": "passed"
+    },
+    {
+      "id": "2",
+      "name": "Java Programming",
+      "code": "JAVA201",
+      "credits": 3,
+      "gradeStatus": "pending"
+    },
+    {
+      "id": "3",
+      "name": "Database Management",
+      "code": "DBMS301",
+      "credits": 4,
+      "gradeStatus": "failed"
+    },
+    {
+      "id": "4",
+      "name": "Data Structures",
+      "code": "DS401",
+      "credits": 3,
+      "gradeStatus": "passed"
+    },
+    {
+      "id": "5",
+      "name": "Web Development",
+      "code": "WEB501",
+      "credits": 2,
+      "gradeStatus": "pending"
+    },
+    {
+      "id": "A34r7x1tvkQ",
+      "name": "New Course 6",
+      "code": "NEW6",
+      "credits": 3,
+      "gradeStatus": "pending"
+    },
+    {
+      "id": "ZC-Fgh2RwsU",
+      "name": "New Course 7",
+      "code": "NEW7",
+      "credits": 3,
+      "gradeStatus": "pending"
+    },
+    {
+      "id": "2GEXWd_ubgk",
+      "name": "New Course 8",
+      "code": "NEW8",
+      "credits": 3,
+      "gradeStatus": "pending"
+    }
+  ],
+  "enrollments": [],
+  "$schema": "./node_modules/json-server/schema.json"
+}
