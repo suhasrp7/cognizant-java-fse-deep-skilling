@@ -1,0 +1,128 @@
+<h2>Reactive Course Enrollment Form</h2>
+
+<form [formGroup]="enrollmentForm" (ngSubmit)="onSubmit()">
+
+  <!-- Student Name -->
+  <label>Student Name:</label><br>
+  <input type="text" formControlName="studentName">
+
+  <div
+    *ngIf="enrollmentForm.get('studentName')?.touched &&
+           enrollmentForm.get('studentName')?.invalid"
+    style="color:red">
+
+    <small *ngIf="enrollmentForm.get('studentName')?.errors?.['required']">
+      Student Name is required
+    </small>
+    <br>
+
+    <small *ngIf="enrollmentForm.get('studentName')?.errors?.['minlength']">
+      Minimum 3 characters required
+    </small>
+    <br>
+
+    <small *ngIf="enrollmentForm.get('studentName')?.errors?.['leadingSpace']">
+      Name cannot start with a space
+    </small>
+
+  </div>
+
+  <br>
+
+  <!-- Email -->
+  <label>Email:</label><br>
+  <input type="email" formControlName="email">
+
+  <div
+    *ngIf="enrollmentForm.get('email')?.touched &&
+           enrollmentForm.get('email')?.invalid"
+    style="color:red">
+
+    <small *ngIf="enrollmentForm.get('email')?.errors?.['required']">
+      Email is required
+    </small>
+    <br>
+
+    <small *ngIf="enrollmentForm.get('email')?.errors?.['email']">
+      Enter a valid email
+    </small>
+
+  </div>
+
+  <br>
+
+  <!-- Course ID -->
+  <label>Course ID:</label><br>
+  <input type="text" formControlName="courseId">
+
+  <div
+    *ngIf="enrollmentForm.get('courseId')?.touched &&
+           enrollmentForm.get('courseId')?.invalid"
+    style="color:red">
+
+    <small>Course ID is required</small>
+
+  </div>
+
+  <br>
+
+  <!-- Semester -->
+  <label>Semester:</label><br>
+
+  <select formControlName="semester">
+    <option value="">Select</option>
+    <option value="Odd">Odd</option>
+    <option value="Even">Even</option>
+  </select>
+
+  <div
+    *ngIf="enrollmentForm.get('semester')?.touched &&
+           enrollmentForm.get('semester')?.invalid"
+    style="color:red">
+
+    <small>Please select a semester</small>
+
+  </div>
+
+  <br>
+
+  <!-- Skills -->
+  <div formArrayName="skills">
+
+    <h3>Skills</h3>
+
+    <div *ngFor="let skill of skills.controls; let i = index">
+
+      <input
+        type="text"
+        [formControlName]="i"
+        placeholder="Enter Skill">
+
+      <button
+        type="button"
+        (click)="removeSkill(i)"
+        *ngIf="skills.length > 1">
+        Remove
+      </button>
+
+      <br><br>
+
+    </div>
+
+  </div>
+
+  <button
+    type="button"
+    (click)="addSkill()">
+    Add Skill
+  </button>
+
+  <br><br>
+
+  <button
+    type="submit"
+    [disabled]="enrollmentForm.invalid">
+    Submit
+  </button>
+
+</form>
